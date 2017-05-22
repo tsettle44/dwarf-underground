@@ -13,21 +13,21 @@ class Buttons extends Component {
         ev.preventDefault
         const btn = ev.currentTarget
         const articleTag = btn.parentElement
-        const input = articleTag.children[2]
+        const form = articleTag.children[2]
 
-        input.setAttribute('type', 'text')
-
-        console.log(this.state.comments)
+        form.removeAttribute('class', 'hide')
     }
 
-    SubmitComment(ev) {
-        
+    CommentSubmit(ev) {
+        debugger
+        const form = ev.currentTarget
+        console.log(form)
     }
 
     render() {
         return (
             <div className="article-links">
-                    <a className="article-link" href="#" onClick = {this.CommentClick.bind(this)}>
+                    <a className="article-link" onClick={this.CommentClick.bind(this)}>
                         <i className="fa fa-comments-o"></i>
                         <span className="article-link-text">Comments</span>
                     </a>
@@ -35,8 +35,8 @@ class Buttons extends Component {
                         <i className="fa fa-share"></i>
                         <span className="article-link-text">Share Post</span>
                     </a>
-            <form onSubmit = {this.SubmitComment.bind(this)}>
-                <input className='input' type="hidden"></input>
+            <form className="form hide" onSubmit={this.CommentSubmit}>
+                <input type="text" />
             </form>
             </div>
         )
