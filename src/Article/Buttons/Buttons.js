@@ -2,26 +2,26 @@ import React, { Component } from 'react'
 import './Buttons.css'
 
 class Buttons extends Component {
-    constructor() {
-        super()
-        this.state = {
-            comments: [],
-        }
-    }
+    // constructor() {
+    //     super()
+    //     this.state = {
+    //         comments: [],
+    //     }
+    // }
     
     CommentClick(ev) {
         ev.preventDefault
         const btn = ev.currentTarget
         const articleTag = btn.parentElement
-        const form = articleTag.children[2]
+        const form = articleTag.childNodes[2]
 
-        form.removeAttribute('class', 'hide')
+        form.removeAttribute('class')
     }
 
     CommentSubmit(ev) {
-        debugger
+        ev.preventDefault
         const form = ev.currentTarget
-        console.log(form)
+        console.log("so good")
     }
 
     render() {
@@ -35,9 +35,10 @@ class Buttons extends Component {
                         <i className="fa fa-share"></i>
                         <span className="article-link-text">Share Post</span>
                     </a>
-            <form className="form hide" onSubmit={this.CommentSubmit}>
-                <input type="text" />
-            </form>
+                <form className='hide'>
+                    <input type="text" />
+                    <button onClick={this.CommentSubmit.bind(this)}>Post</button>
+                </form>
             </div>
         )
     }
