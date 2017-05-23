@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import Header from './Header/Header';
-import Article from './Article/Article'
-import Ad from './Ad/Ad'
-import Links from './Links/Links'
-import Footer from './Footer/Footer'
+import Header from './Header'
+import MainContent from './MainContent'
 import './App.css';
 
 class App extends Component {
@@ -12,16 +9,12 @@ class App extends Component {
       <div className="App">
         <Header />
 
-        <main className="expanded row">
-          
-          <Article />
-          <Ad />
-          <Links />
-         
-        </main>
+        <MainContent />
 
-        <Footer />
-       
+        <footer className="expanded row">
+          <h6>&copy; 2017 Erebor Industries</h6>
+          <h6 className="float-right">All rights reserved</h6>
+        </footer>
       </div>
     );
   }
