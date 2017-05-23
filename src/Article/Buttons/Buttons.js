@@ -1,28 +1,30 @@
 import React, { Component } from 'react'
+import Comments from './Comments'
 import './Buttons.css'
 
 class Buttons extends Component {
-    // constructor() {
-    //     super()
-    //     this.state = {
-    //         comments: [],
-    //     }
-    // }
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            showComments: false,
+        }
+        
+        this.CommentClick =this.CommentClick.bind(this)
+    }
     
     CommentClick(ev) {
-        ev.preventDefault
-        const btn = ev.currentTarget
-        const articleTag = btn.parentElement
-        const form = articleTag.childNodes[2]
-
-        form.removeAttribute('class')
+        ev.preventDefault()
+        this.setState({
+            showComments: !this.state.showComments
+        })
     }
 
     CommentSubmit(ev) {
-        debugger
-        ev.preventDefault
+        ev.preventDefault()
         const form = ev.currentTarget
-        console.log(form)
+        
+        
     }
 
     render() {
@@ -36,9 +38,7 @@ class Buttons extends Component {
                         <i className="fa fa-share"></i>
                         <span className="article-link-text">Share Post</span>
                     </a>
-                <form className='hide' onSubmit={this.CommentSubmit.bind(this)}>
-                    <input type="text" />
-                </form>
+                {this.state.showComments ? <Comments /> : null}
             </div>
         )
     }
