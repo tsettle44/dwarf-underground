@@ -29,6 +29,7 @@ class Buttons extends Component {
 
     render() {
         return (
+            <div>
             <div className="article-links">
                     <a className="article-link" onClick={this.CommentClick.bind(this)}>
                         <i className="fa fa-comments-o"></i>
@@ -38,7 +39,8 @@ class Buttons extends Component {
                         <i className="fa fa-share"></i>
                         <span className="article-link-text">Share Post</span>
                     </a>
-                {this.state.showComments ? <Comments /> : null}
+            </div>
+            {this.state.showComments ? <Comments /> : null}
             </div>
         )
     }
