@@ -19,9 +19,10 @@ class Buttons extends Component {
     }
 
     CommentSubmit(ev) {
+        debugger
         ev.preventDefault
         const form = ev.currentTarget
-        console.log("so good")
+        console.log(form)
     }
 
     render() {
@@ -35,9 +36,8 @@ class Buttons extends Component {
                         <i className="fa fa-share"></i>
                         <span className="article-link-text">Share Post</span>
                     </a>
-                <form className='hide'>
+                <form className='hide' onSubmit={this.CommentSubmit.bind(this)}>
                     <input type="text" />
-                    <button onClick={this.CommentSubmit.bind(this)}>Post</button>
                 </form>
             </div>
         )
